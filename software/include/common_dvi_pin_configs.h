@@ -8,7 +8,7 @@
 #include "dvi_serialiser.h"
 
 #ifndef DEFAULT_DVI_SERIAL_CONFIG
-#define DEFAULT_DVI_SERIAL_CONFIG pico_sock_cfg
+#define DEFAULT_DVI_SERIAL_CONFIG picodvi_dvi_cfg
 #endif
 
 // ----------------------------------------------------------------------------
@@ -29,8 +29,8 @@ static const struct dvi_serialiser_cfg picodvi_reva_dvi_cfg = {
 static const struct dvi_serialiser_cfg picodvi_dvi_cfg = {
 	.pio = pio0,
 	.sm_tmds = {0, 1, 2},
-	.pins_tmds = {10, 12, 14},
-	.pins_clk = 8,
+	.pins_tmds = {12, 10, 8},
+	.pins_clk = 14,
 	.invert_diffpairs = true
 };
 
@@ -38,7 +38,7 @@ static const struct dvi_serialiser_cfg picodvi_dvi_cfg = {
 static const struct dvi_serialiser_cfg picodvi_pmod0_cfg = {
 	.pio = pio0,
 	.sm_tmds = {0, 1, 2},
-	.pins_tmds = {2, 4, 0},
+	.pins_tmds = {4, 2, 0},
 	.pins_clk = 6,
 	.invert_diffpairs = false
 };
@@ -56,13 +56,6 @@ static const struct dvi_serialiser_cfg micromod_cfg = {
 	.invert_diffpairs = true
 };
 
-// Pico DVI Sock (small hat on the bottom) which solders to the end of a Pico
-static const struct dvi_serialiser_cfg pico_sock_cfg = {
-	.pio = pio0,
-	.sm_tmds = {0, 1, 2},
-	.pins_tmds = {12, 18, 16},
-	.pins_clk = 14,
-	.invert_diffpairs = false
-};
+
 
 #endif
